@@ -1,0 +1,54 @@
+name: Refresh profile cards
+
+on:
+  schedule:
+    - cron: "17 3 * * *"        # daily
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["scripts/**", "fonts/**", "assets/**", "featured.txt"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-cards
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      # 1. Refresh data/*.json. PROFILE_TOKEN (optional PAT, read:user) lets private
+      #    contributions count; without it the built-in token sees public ones only.
+      - name: Refresh contribution data
+        env:
+          GH_TOKEN: ${{ secrets.PROFILE_TOKEN || github.token }}
+          PROFILE_LOGIN: ${{ github.repository_owner }}
+        run: bash scripts/fetch-data.sh
+
+      # 2. Render cards/*.svg from that data.
+      - name: Render cards
+        run: |
+          pip install -r requirements.txt
+          python scripts/render_cards.py
+
+      # 3. Commit only if something changed.
+      - name: Commit cards
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add cards data
+          if git diff --cached --quiet; then
+            echo "Nothing to commit"
+          else
+            git commit -m "chore: refresh profile cards"
+            git push
+          fi
