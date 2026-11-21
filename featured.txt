@@ -1,0 +1,5 @@
+# One repo name per line. Order = card order in the README.
+Clinic-Management-System
+Disticaret
+Tercih-robotu
+celik-mobiliya
