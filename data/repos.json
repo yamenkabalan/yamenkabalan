@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Clinic-Management-System",
+    "description": "Enterprise multi-tenant Clinic CRM/EMR SaaS — Next.js 15, NestJS, PostgreSQL RLS, Stripe",
+    "url": "https://github.com/yamenkabalan/Clinic-Management-System",
+    "stars": 1,
+    "forks": 0,
+    "pushedAt": "2026-08-05T07:24:25Z",
+    "language": null,
+    "languageColor": null
+  },
+  {
+    "name": "Disticaret",
+    "description": "Türkiye ihracat tahmini için Lineer Cebir tabanlı karar destek sistemi — Normal Denklem, SVD Pseudo-Inverse ve PCA Regresyon karşılaştırması (2000–2021)",
+    "url": "https://github.com/yamenkabalan/Disticaret",
+    "stars": 1,
+    "forks": 0,
+    "pushedAt": "2026-05-28T12:42:27Z",
+    "language": "HTML",
+    "languageColor": "#e34c26"
+  },
+  {
+    "name": "Tercih-robotu",
+    "description": "AI destekli YKS Tercih Robotu - tercih motoru, puan hesaplama ve AI tercih danismani (FastAPI + React)",
+    "url": "https://github.com/yamenkabalan/Tercih-robotu",
+    "stars": 0,
+    "forks": 0,
+    "pushedAt": "2026-08-05T08:20:04Z",
+    "language": null,
+    "languageColor": null
+  },
+  {
+    "name": "celik-mobiliya",
+    "description": "Mobilya firması için kurumsal web sites",
+    "url": "https://github.com/yamenkabalan/celik-mobiliya",
+    "stars": 0,
+    "forks": 0,
+    "pushedAt": "2026-07-22T16:41:05Z",
+    "language": "JavaScript",
+    "languageColor": "#f1e05a"
+  }
+]
